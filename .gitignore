@@ -5,6 +5,7 @@ venv/
 
 # Arquivos do banco de dados SQLite
 database.db
+backend/instance/
 migrations/
 
 # Arquivos de cache do Python
