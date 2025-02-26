@@ -10,14 +10,14 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object('app.config.Config')
 
-    # Configuração do CORS pra nao bugar no front
+
     CORS(app)
 
-    # o banco de dados e o Flask-Migrate
+
     db.init_app(app)
     migrate.init_app(app, db)
 
-    # registro das minhas rotas
+
     from app.routes.entrada_routes import bp as entrada_bp
     from app.routes.mercadoria_routes import bp as mercadoria_bp
     from app.routes.relatorio_routes import bp as relatorio_bp
