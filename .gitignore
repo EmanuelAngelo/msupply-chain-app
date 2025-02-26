@@ -1,0 +1,32 @@
+# 🛑 Arquivos e pastas a serem ignorados pelo Git
+
+# Ambiente virtual do Python
+venv/
+
+# Arquivos do banco de dados SQLite
+database.db
+migrations/
+
+# Arquivos de cache do Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+
+# Configurações de IDEs e editores de código
+.vscode/
+.idea/
+*.swp
+
+# Dependências instaladas
+deps/
+
+# Arquivos de exportação e relatórios
+*.csv
+*.pdf
+
+# Arquivos de ambiente
+.env
