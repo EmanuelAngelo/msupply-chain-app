@@ -1,12 +1,11 @@
-// src/components/EntradaForm.js
 import React, { useState, useEffect } from 'react';
 import { criarEntrada, listarMercadorias } from '../services/api';
 
 const EntradaForm = () => {
     const [quantidade, setQuantidade] = useState('');
-    const [dataHora, setDataHora] = useState('');
+    const [data_hora, setDataHora] = useState(null);
     const [local, setLocal] = useState('');
-    const [mercadoriaId, setMercadoriaId] = useState('');
+    const [mercadoria_id, setMercadoriaId] = useState('');
     const [mercadorias, setMercadorias] = useState([]);
 
     useEffect(() => {
@@ -23,7 +22,17 @@ const EntradaForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const entrada = { quantidade, dataHora, local, mercadoriaId };
+
+
+        const dataHoraFormatada = data_hora.replace('T', ' ') + ':00';
+
+        const entrada = {
+            quantidade: Number(quantidade),
+            data_hora: dataHoraFormatada,
+            local,
+            mercadoria_id: Number(mercadoria_id),
+        };
+
         try {
             await criarEntrada(entrada);
             alert('Entrada cadastrada com sucesso!');
@@ -33,6 +42,13 @@ const EntradaForm = () => {
             setMercadoriaId('');
         } catch (error) {
             console.error('Erro ao cadastrar entrada:', error);
+            if (error.response) {
+
+                alert(`Erro: ${error.response.data.message}`);
+            } else {
+
+                alert('Erro ao cadastrar entrada. Verifique os dados e tente novamente.');
+            }
         }
     };
 
@@ -44,13 +60,15 @@ const EntradaForm = () => {
                 value={quantidade}
                 onChange={(e) => setQuantidade(e.target.value)}
                 className="w-full p-2 border rounded"
+                required
             />
             <input
                 type="datetime-local"
                 placeholder="Data e Hora"
-                value={dataHora}
+                value={data_hora}
                 onChange={(e) => setDataHora(e.target.value)}
                 className="w-full p-2 border rounded"
+                required
             />
             <input
                 type="text"
@@ -58,11 +76,13 @@ const EntradaForm = () => {
                 value={local}
                 onChange={(e) => setLocal(e.target.value)}
                 className="w-full p-2 border rounded"
+                required
             />
             <select
-                value={mercadoriaId}
+                value={mercadoria_id}
                 onChange={(e) => setMercadoriaId(e.target.value)}
                 className="w-full p-2 border rounded"
+                required
             >
                 <option value="">Selecione uma mercadoria</option>
                 {mercadorias.map((mercadoria) => (

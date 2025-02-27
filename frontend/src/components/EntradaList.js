@@ -25,7 +25,7 @@ const EntradaList = () => {
                     <li key={entrada.id} className="border p-2 mb-2">
                         <p><strong>Mercadoria:</strong> {entrada.nome_mercadoria}</p>
                         <p><strong>Quantidade:</strong> {entrada.quantidade}</p>
-                        <p><strong>Data e Hora:</strong> {entrada.dataHora}</p>
+                        <p><strong>Data e Hora:</strong> {new Date(entrada.data_hora).toLocaleString()}</p>
                         <p><strong>Local:</strong> {entrada.local}</p>
                     </li>
                 ))}
