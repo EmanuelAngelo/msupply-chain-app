@@ -1,0 +1,89 @@
+# 🛑 Arquivos e pastas a serem ignorados pelo Git
+
+# Ambiente virtual do Python
+venv/
+
+# Arquivos do banco de dados SQLite
+database.db
+backend/instance/
+migrations/
+
+# Arquivos de cache do Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+
+# Configurações de IDEs e editores de código
+.vscode/
+.idea/
+*.swp
+
+# Dependências instaladas
+deps/
+
+# Arquivos de exportação e relatórios
+*.csv
+*.pdf
+
+# Arquivos de ambiente
+.env
+
+
+# Dependências
+/node_modules
+/.pnp
+.pnp.js
+
+# Ambiente de desenvolvimento
+/.env.local
+/.env.development.local
+/.env.test.local
+/.env.production.local
+
+# Build
+/build
+/dist
+/out
+
+# Cache
+/.cache
+/.next
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# IDE/Editor
+/.idea
+/.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Testes
+/coverage
+/.nyc_output
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Outros
+*.log
+*.tmp
+*.temp
